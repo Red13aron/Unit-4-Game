@@ -54,11 +54,11 @@ body{
 }
 
 #hero1{
-    background: url(../images/BanditHero.png);
+    background-image: url(../images/BanditHero.png);
 }
 
 #hero2{
-    background: url(../images/DraugrHero.png);
+    background-image: url(../images/DraugrHero.png);
 }
 
 #hero3{
@@ -70,22 +70,22 @@ body{
 }
 
 #enemy1{
-    background:#000000;
+    /* background:#000000; */
     width:25%;
 }
 
 #enemy2{
-    background:#000000;
+    /* background:#000000; */
     width:25%;
 }
 
 #enemy3{
-    background: #000000;
+    /* background: #000000; */
     width:25%;
 }
 
 #defenderPic{
-    background: #000000;
+    /* background: #000000; */
     margin-right: 75%;
 }
 
