@@ -1,0 +1,109 @@
+body{
+    background-image:url(../images/GameBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.container{
+    width: 75%;
+    height: 75%;
+    background:#999999;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.title{
+    text-align: center;
+    font-size: 48px;
+    text-decoration: underline;
+    position: absolute;
+    top:5%;
+    left:40%;
+}
+
+.heroSelectTitle{
+    font-size:36px;   
+}
+
+.enemySelectTitle{
+    font-size: 36px;
+}
+
+.fightSectionTitle{
+    font-size:36px;
+}
+
+.defenderSectionTitle{
+    font-size:36px;
+}
+.heroes{
+    width:100%;
+}
+.hero{
+    width:20%;
+    height:150px;
+    float:left;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#hero1{
+    background: url(../images/BanditHero.png);
+}
+
+#hero2{
+    background: url(../images/DraugrHero.png);
+}
+
+#hero3{
+    background-image: url(../images/TrollHero.png);
+}
+
+#hero4{
+    background-image: url(../images/HagravenHero.png);
+}
+
+#enemy1{
+    background:#000000;
+    width:25%;
+}
+
+#enemy2{
+    background:#000000;
+    width:25%;
+}
+
+#enemy3{
+    background: #000000;
+    width:25%;
+}
+
+#defenderPic{
+    background: #000000;
+    margin-right: 75%;
+}
+
+.enemyChoice{
+    width:100%;
+}
+
+.fightSection{
+    width:100%
+}
+
+.buttonStyle{
+    margin-top:2.5%;
+    margin-left: 2.5%;
+}
+
+.innerTitle{
+    margin-top:5%;
+    margin-bottom:2.5%;
+    margin-left:2.5%;
+}
