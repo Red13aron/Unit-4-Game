@@ -25,21 +25,6 @@ body{
     left:40%;
 }
 
-.heroSelectTitle{
-    font-size:36px;   
-}
-
-.enemySelectTitle{
-    font-size: 36px;
-}
-
-.fightSectionTitle{
-    font-size:36px;
-}
-
-.defenderSectionTitle{
-    font-size:36px;
-}
 .heroes{
     width:100%;
 }
@@ -106,4 +91,5 @@ body{
     margin-top:5%;
     margin-bottom:2.5%;
     margin-left:2.5%;
+    font-size:36px;
 }

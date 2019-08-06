@@ -71,8 +71,12 @@ console.log(messageDiv + "here it is");
 //Bools
 let heroSelected = false;
 let defenderSelected = false;
+let enemy1Defeated = false;
+let enemy2Defeated = false;
+let enemy3Defeated = false;
 
 //Global Functions
+//Restart Gme
 function restart() {
     currentHero.name = "";
     currentHero.health = 0;
@@ -88,9 +92,13 @@ function restart() {
 
     heroSelected = false;
     defenderSelected = false;
+    enemy1Defeated = false;
+    enemy2Defeated = false;
+    enemy3Defeated = false;
 
     heroTitleDiv.textContent = "Select Character";
     defenderTitleDiv.textContent = "Defender";
+    messageDiv.textContent = "";
 
     hero1Div.style.backgroundImage = "url('assets/images/BanditHero.png')";
     hero2Div.style.backgroundImage = "url('assets/images/DraugrHero.png')";
@@ -104,6 +112,7 @@ function restart() {
     defenderDiv.style.backgroundImage = "url('')";
 }
 
+//Set Hero
 function setCurrentHero(hero) {
     currentHero.name = hero.name;
     currentHero.health = hero.health;
@@ -112,6 +121,7 @@ function setCurrentHero(hero) {
     currentHero.currentAttack = hero.currentAttack;
 }
 
+//Set Defender
 function setCurrentDefender(hero) {
     currentDefender.name = hero.name;
     currentDefender.health = hero.health;
@@ -120,6 +130,7 @@ function setCurrentDefender(hero) {
     currentDefender.currentAttack = hero.currentAttack;
 }
 
+//Attack
 function attack() {
     if (currentHero.health > 0 && currentDefender.health > 0) {
         currentDefender.health = currentDefender.health - currentHero.currentAttack;
@@ -134,6 +145,51 @@ function attack() {
     }
     else if(currentDefender.health <= 0){
         messageDiv.textContent = "You have won!  Select a new Foe!";
+        if(currentHero.name === "Bandit"){
+            if(currentDefender.name === "Draugr"){
+                enemy1Defeated = true;
+            }
+            else if(currentDefender.name === "Troll"){
+                enemy2Defeated = true;
+            }
+            else if(currentDefender.name === "Hagraven"){
+                enemy3Defeated = true;
+            }
+        }
+        else if(currentHero.name === "Draugr"){
+            if(currentDefender.name === "Bandit"){
+                enemy1Defeated = true;
+            }
+            else if(currentDefender.name === "Troll"){
+                enemy2Defeated = true;
+            }
+            else if(currentDefender.name === "Hagraven"){
+                enemy3Defeated = true;
+            }
+        }
+        else if(currentHero.name === "Troll"){
+            if(currentDefender.name === "Bandit"){
+                enemy1Defeated = true;
+            }
+            else if(currentDefender.name === "Draugr"){
+                enemy2Defeated = true;
+            }
+            else if(currentDefender.name === "Hagraven"){
+                enemy3Defeated = true;
+            }
+        }
+        else if(currentHero.name === "Hagraven"){
+            if(currentDefender.name === "Bandit"){
+                enemy1Defeated = true;
+            }
+            else if(currentDefender.name === "Draugr"){
+                enemy2Defeated = true;
+            }
+            else if(currentDefender.name === "Troll"){
+                enemy3Defeated = true;
+            }
+        }
+        defenderSelected = false;
     }
 }
 
@@ -196,21 +252,21 @@ document.querySelectorAll(".enemySelection").forEach(function (defender) {
     defender.addEventListener("click", function () {
         if (heroSelected === true && defenderSelected !== true) {
             if (currentHero.name === "Bandit") {
-                if (defender.getAttribute("value") === "1") {
+                if (defender.getAttribute("value") === "1" && enemy1Defeated !== true) {
                     setCurrentDefender(hero2);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/DraugrHero.png')";
                     enemy1Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "2") {
+                else if (defender.getAttribute("value") === "2" && enemy2Defeated !== true) {
                     setCurrentDefender(hero3);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/TrollHero.png')";
                     enemy2Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "3") {
+                else if (defender.getAttribute("value") === "3" && enemy3Defeated !== true) {
                     setCurrentDefender(hero4);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
@@ -219,21 +275,21 @@ document.querySelectorAll(".enemySelection").forEach(function (defender) {
                 }
             }
             else if (currentHero.name === "Draugr") {
-                if (defender.getAttribute("value") === "1") {
+                if (defender.getAttribute("value") === "1" && enemy1Defeated !== true) {
                     setCurrentDefender(hero1);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/BanditHero.png')";
                     enemy1Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "2") {
+                else if (defender.getAttribute("value") === "2" && enemy2Defeated !== true) {
                     setCurrentDefender(hero3);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/TrollHero.png')";
                     enemy2Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "3") {
+                else if (defender.getAttribute("value") === "3" && enemy3Defeated !== true) {
                     setCurrentDefender(hero4);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
@@ -242,21 +298,21 @@ document.querySelectorAll(".enemySelection").forEach(function (defender) {
                 }
             }
             else if (currentHero.name === "Troll") {
-                if (defender.getAttribute("value") === "1") {
+                if (defender.getAttribute("value") === "1" && enemy1Defeated !== true) {
                     setCurrentDefender(hero1);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/BanditHero.png')";
                     enemy1Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "2") {
+                else if (defender.getAttribute("value") === "2" && enemy2Defeated !== true) {
                     setCurrentDefender(hero2);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/DraugrHero.png')";
                     enemy2Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "3") {
+                else if (defender.getAttribute("value") === "3" && enemy3Defeated !== true) {
                     setCurrentDefender(hero4);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
@@ -265,21 +321,21 @@ document.querySelectorAll(".enemySelection").forEach(function (defender) {
                 }
             }
             else if (currentHero.name === "Hagraven") {
-                if (defender.getAttribute("value") === "1") {
+                if (defender.getAttribute("value") === "1" && enemy1Defeated !== true) {
                     setCurrentDefender(hero1);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/BanditHero.png')";
                     enemy1Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "2") {
+                else if (defender.getAttribute("value") === "2" && enemy2Defeated !== true) {
                     setCurrentDefender(hero2);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
                     defenderDiv.style.backgroundImage = "url('assets/images/DraugrHero.png')";
                     enemy2Div.style.backgroundImage = "url('')";
                 }
-                else if (defender.getAttribute("value") === "3") {
+                else if (defender.getAttribute("value") === "3" && enemy3Defeated !== true) {
                     setCurrentDefender(hero3);
                     defenderTitleDiv.textContent = "Your Foe: " + currentDefender.name + " Your Foe's Health: " + currentDefender.health;
                     defenderSelected = true;
